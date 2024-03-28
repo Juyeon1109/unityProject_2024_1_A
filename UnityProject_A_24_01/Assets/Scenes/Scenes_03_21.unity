@@ -258,8 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6243cf5958e44884dff8d467da43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 100
-  height: 180.5
 --- !u!4 &506665795
 Transform:
   m_ObjectHideFlags: 0
@@ -648,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7d87d8686dc2c4691814e18c67c31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextUI: {fileID: 0}
+  TextUI: {fileID: 1593487045}
   Count: 0
   Power: 100
   m_Rigidbody: {fileID: 1299875843}
@@ -692,6 +690,7 @@ GameObject:
   - component: {fileID: 1479998656}
   - component: {fileID: 1479998655}
   - component: {fileID: 1479998654}
+  - component: {fileID: 1479998659}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -814,6 +813,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479998659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479998653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe5819bcb18e2d4a8301a94ca447cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1593487043
 GameObject:
   m_ObjectHideFlags: 0
