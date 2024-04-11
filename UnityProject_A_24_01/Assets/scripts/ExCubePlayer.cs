@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ExcubePlayer : MonoBehaviour
 {
@@ -9,14 +10,24 @@ public class ExcubePlayer : MonoBehaviour
     public int Count = 0;               // 마우스 클릭 카운터
     public float Power = 100;           // 물리 힘 수치
    
-    public float Point = 0;
+    public int Point = 0;
     public float checkTime = 0.0f;
+    public float checkEndTime = 30.0f;
 
     public Rigidbody m_Rigidbody;       // 오브젝트의 강체
 
     // Update is called once per frame
     void Update()
     {
+        checkEndTime -= Time.deltaTime;
+
+        if (checkEndTime <= 0)
+        {
+            PlayerPrefs.SetInt("Point", Point);
+            SceneManager.LoadScene("ResultScene");
+        }
+
+
         checkTime += Time.deltaTime;
         if(checkTime >= 1.0f)
         {
