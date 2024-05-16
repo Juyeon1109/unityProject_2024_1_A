@@ -511,7 +511,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43a5ee1c1eb6b64c99e19c3f886e369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleObject: {fileID: 3729112753673547025, guid: f1f15ae9bcfeaca45b8469aa1f3fa683, type: 3}
+  circleObject:
+  - {fileID: 3729112753673547025, guid: f1f15ae9bcfeaca45b8469aa1f3fa683, type: 3}
+  - {fileID: 3729112753673547025, guid: f4aa89b1ec8cbfd468295c13a67ee1b2, type: 3}
+  - {fileID: 3729112753673547025, guid: 4a9142b488a30a948bc1fbbc1c07449e, type: 3}
+  - {fileID: 3729112753673547025, guid: 2e32c11553cf7bf48a48e94f4773be86, type: 3}
+  - {fileID: 3729112753673547025, guid: 0a19499920a4e0243987fe74fdd886fa, type: 3}
+  - {fileID: 3729112753673547025, guid: 68b0cb05823dda14abe096a4a3de121f, type: 3}
+  - {fileID: 3729112753673547025, guid: e22dbc7f9c01c4641afcb9034fe74fc8, type: 3}
   genTransform: {fileID: 968564172}
   timeCheck: 0
   isGen: 0
