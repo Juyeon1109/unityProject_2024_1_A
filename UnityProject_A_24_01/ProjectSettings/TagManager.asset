@@ -9,6 +9,7 @@ TagManager:
   - Items
   - GameManager
   - Fruit
+  - EndLind
   layers:
   - Default
   - TransparentFX

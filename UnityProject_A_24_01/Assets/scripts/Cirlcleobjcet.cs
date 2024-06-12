@@ -9,6 +9,9 @@ public class Cirlcleobjcet : MonoBehaviour
     Rigidbody2D rigidbody2D;    //2D 강체 선언
 
     public int index;     //과일 번호 설정
+    public float EndTime;
+
+    public SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -70,31 +73,32 @@ public class Cirlcleobjcet : MonoBehaviour
         isUsed = true;      //사용 완료 되었다.(true)
         rigidbody2D.simulated = true;   //물리 시뮬레이션 사용함 (true)
     }
-    public void OnCollisionEnter2D(Collision2D collision)       //해당 오브젝트가 충돌 했을 때 OnCollisionEnter2D
+    public void OnTriggerStay2D (Collider2D collision)       //해당 오브젝트가 충돌 했을 때 OnCollisionEnter2D
     {
-        if (index >= 7)
-            return;
-
-        if (collision.gameObject.tag == "Fruit")                 //충돌이 같은 과일일 경우
+        if( collision.tag == "EndLine")                     //충돌중인 물체의 Tag가 EndLine일 경우
         {
-            Cirlcleobjcet temp = collision.gameObject.GetComponent<Cirlcleobjcet>();    //충돌한 물체에서 같은 class를 받아온다.
-
-            if(temp.index == index)                         //충돌 index와 내 index가 같다.
+            EndTime += Time.deltaTime;                      //프레임 시간만큼 누적 시켜서 초기화
+            if(EndTime > 1)                                 //1초 이상일 경우
             {
-                if (gameObject.GetInstanceID() > collision.gameObject.GetInstanceID())  //2개 합쳐서 1개를 만들기 위해서 ID검사 후 큰것만
-                {
-                    //GameManager에서 합친 오브젝트를 생성
-
-                    GameObject tempGameManager = GameObject.FindWithTag("GameManager");     //Secne에서 GameManager Tag 가지고 있는 오브젝트를 가져온다
-                    if (tempGameManager != null)                                            // 해당 오브젝트가 있을 경우
-                    {
-                        tempGameManager.gameObject.GetComponent<GameManager>().MergeObject(index, gameObject.transform.position);
-                    }
-                    Destroy(temp.gameObject);       //충돌한 물체 제거
-                    Destroy(gameObject);           //자신도 제거
-                }
+                spriteRenderer.color = new Color(0.9f, 0.2f, 0.2f); //빨강색 처리
+            }
+            if(EndTime > 3)                                 //3초 이상일 경우
+            {
+                Debug.Log("게임종료");                      //우선 게임 종료 처리
             }
         }
+
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if( collision.tag == "EndLine")
+        {
+            EndTime = 0.0f;
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+
 }
 
